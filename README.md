@@ -52,13 +52,7 @@ Learn more about Docker with this playlist:
 
 ## 🚀 **Other DevOps Projects**
 
-| **Project**                                | **Video Link**                                                                                   |
-|--------------------------------------------|--------------------------------------------------------------------------------------------------|
-| **SWIGGY App Project**                     | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/x55z7rk0NAU) |
-| **Zomato App Project**                     | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/GyoI6-I68aQ) |
-| **Jenkins + Terraform + EKS Integration**  | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=sonarqube&logoColor=white)](https://youtu.be/DV79JyFbQE8) |
-| **AWS 3 Tier Architecture Project**        | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=nexus&logoColor=white)](https://youtu.be/Oj-Hr_aulKA) |
-
+| **Project**                                | **Video Link**                                                                            
 ---
 
 ## 🤝 **Connect with Me**
