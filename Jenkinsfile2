@@ -110,7 +110,7 @@ pipeline{
             steps {
                 sh '''
                     ssh -o StrictHostKeyChecking=no ubuntu@192.168.1.4 "
-                        k3s kubectl rollout status deployment/bms --timeout=120s
+                        k3s kubectl rollout status deployment/bms-deployment --timeout=120s
                         k3s kubectl get pods
                         k3s kubectl get deployments
                         k3s kubectl get services
