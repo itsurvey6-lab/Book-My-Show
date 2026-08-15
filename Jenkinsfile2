@@ -121,20 +121,23 @@ pipeline{
 			}
 		}
         stage('k3s verify') {
-            steps {
-                sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@192.168.1.4 "
-                        k3s kubectl rollout status deployment/bms-deployment --timeout=120s
-                        k3s kubectl get pods
-                        k3s kubectl get deployments
-                        k3s kubectl get services
-                    "
-                '''     
-            }
-        }
+		    steps {
+		        sh '''
+		            ssh -i /var/lib/jenkins/.ssh/id_ed25519 \
+		                -o IdentitiesOnly=yes \
+		                -o StrictHostKeyChecking=no \
+		                ubuntu@192.168.1.4 "
+		                    k3s kubectl rollout status deployment/bms-deployment --timeout=120s
+		                    k3s kubectl get pods
+		                    k3s kubectl get deployments
+		                    k3s kubectl get services
+		                "
+		        '''
+		    }
+		}
 		stage('Application test') {
 			steps {
-				sh 'curl --fail http://192.168.1.5:3000'
+				sh 'curl --fail http://192.168.1.4:30080'
 			}
 		}		
 	}
