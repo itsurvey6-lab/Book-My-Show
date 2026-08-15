@@ -100,9 +100,23 @@ pipeline{
 		stage('K3S Deploy') {
 			steps {
 				sh '''
-					scp -o StrictHostKeyChecking=no deployment.yml ubuntu@192.168.1.4:/tmp/deployment.yml
-                    scp -o StrictHostKeyChecking=no service.yml ubuntu@192.168.1.4:/tmp/service.yml
-                    ssh -o StrictHostKeyChecking=no ubuntu@192.168.1.4 "k3s kubectl apply -f /tmp/deployment.yml -f /tmp/service.yml"
+				    scp -i /var/lib/jenkins/.ssh/id_ed25519 \
+				        -o IdentitiesOnly=yes \
+				        -o StrictHostKeyChecking=no \
+				        deployment.yml \
+				        ubuntu@192.168.1.4:/tmp/deployment.yml
+				
+				    scp -i /var/lib/jenkins/.ssh/id_ed25519 \
+				        -o IdentitiesOnly=yes \
+				        -o StrictHostKeyChecking=no \
+				        service.yml \
+				        ubuntu@192.168.1.4:/tmp/service.yml
+				
+				    ssh -i /var/lib/jenkins/.ssh/id_ed25519 \
+				        -o IdentitiesOnly=yes \
+				        -o StrictHostKeyChecking=no \
+				        ubuntu@192.168.1.4 \
+				        'k3s kubectl apply -f /tmp/deployment.yml -f /tmp/service.yml'
 				'''
 			}
 		}
